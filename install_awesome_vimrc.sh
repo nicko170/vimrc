@@ -15,4 +15,21 @@ source ~/.vim_runtime/my_configs.vim
 catch
 endtry' > ~/.vimrc
 
+### Support for Neo-VIM
+mkdir -p ~/.config/nvim
+
+echo 'set runtimepath^=~/.vim_runtime runtimepath+=~/.vim_runtime/after
+let &packpath=&runtimepath
+
+source ~/.vim_runtime/vimrcs/basic.vim
+source ~/.vim_runtime/vimrcs/filetypes.vim
+source ~/.vim_runtime/vimrcs/plugins_config.vim
+source ~/.vim_runtime/vimrcs/extended.vim
+
+try
+source ~/.vim_runtime/my_configs.vim
+catch
+endtry' > ~/.config/nvim/init.vim
+
+echo "To complete the installation, please launch vim/neovim and run :PlugInstall"
 echo "Installed the Ultimate Vim configuration successfully! Enjoy :-)"
